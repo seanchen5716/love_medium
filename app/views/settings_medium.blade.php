@@ -1,5 +1,5 @@
 @include('partials.header3')
-			
+
 			<!-- Main Content Starts -->
 			<div class="main-content">
 				<div class="cd-top">
@@ -18,7 +18,7 @@
 										<div class="button pull-right">
 											<a href="#" class="btn btn-default btn-edit" style="border-radius: 50px;margin-top:25px;">Edit Email</a>
 										</div>
-									</div>	
+									</div>
 									<div class="setting-email-form setting-form" id="set_email">
 										<form>
 											<div class="row">
@@ -29,7 +29,7 @@
 													</div>
 												</div>
 												<div class="col-md-3 clearfix">
-													<div class="form-group pull-right">		
+													<div class="form-group pull-right">
 														<button type="submit" id="email_save" class="btn btn-green btn-save">Save</button>
 														<button type="submit" id="email_cancel" class="btn btn-default btn-cancel">Cancel</button>
 													</div>
@@ -37,7 +37,7 @@
 											</div>
 										</form>
 									</div>
-									
+
 									<div class="edit-outer clearfix" id="outer_pass">
 										<div class="setting-details">
 											<h4>Your Password</h4>
@@ -46,7 +46,7 @@
 										<div class="button pull-right">
 											<a href="#" class="btn btn-default btn-password" style="border-radius: 50px;margin-top:25px;">Edit Password</a>
 										</div>
-									</div>	
+									</div>
 									<div class="setting-password-form setting-form" id="set_pass">
 										<form>
 											<div class="row">
@@ -57,7 +57,7 @@
 													</div>
 												</div>
 												<div class="col-md-3 clearfix">
-													<div class="form-group pull-right">		
+													<div class="form-group pull-right">
 														<button type="submit" id="pass_save" class="btn btn-green btn-save">Save</button>
 														<button type="submit" id="pass_cancel" class="btn btn-default btn-cancel">Cancel</button>
 													</div>
@@ -73,8 +73,8 @@
 			</div>
 			<!-- Main Content Ends -->
 		</div>
-		
-		
+
+
 		<!-- Modal -->
 		<div class="modal fade" id="myModal" style="padding-right: 0px !important;">
 			<div class="modal-dialog">
@@ -91,7 +91,7 @@
 								<a class=" btn btn-green sign-link" style="border-radius: 50px;padding: 5px 14px;">Sign In</a>
 								<a  class="btn btn-green signup-link" style="border-radius: 50px;padding: 5px 14px;">Sign Up</a>
 							</div>
-							
+
 							<div class="signin-content signin" style="margin: 0px;">
 								<h2>Medium</h2>
 								<h4>Enter your credentials to sign in</h4>
@@ -125,12 +125,12 @@
 		</div>
 
 
-	
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{{asset('js/bootstrap.min.js'}}"></script>
-	
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+
 	<script>
 		$(document).ready(function(){
 			$(".modal-body .signin-content").hide();
@@ -142,73 +142,73 @@
 					$(".c-right").removeClass("active");
 				}
 			});
-			
+
 			$("a.sign-link").click(function(e){
 				e.preventDefault();
 				$(".modal-body .main-content").hide();
 				$(".modal-body .signin-content").show();
 			});
-			
+
 			$("a.btn-notify").click(function(e){
 				e.preventDefault();
 				if(!($(".notification").hasClass("active"))){
-					$(".notification").fadeIn().addClass("active");	
+					$(".notification").fadeIn().addClass("active");
 					$(".account").fadeOut().removeClass("active");
 					$(".publish").fadeOut().removeClass("active");
-					$(".more").fadeOut().removeClass("active");	
+					$(".more").fadeOut().removeClass("active");
 				}
 				else{
-					$(".notification").fadeOut().removeClass("active");	
+					$(".notification").fadeOut().removeClass("active");
 				}
 			});
-			
+
 			$("a.btn-account").click(function(e){
 				e.preventDefault();
 				if(!($(".account").hasClass("active"))){
-					$(".account").fadeIn().addClass("active");	
+					$(".account").fadeIn().addClass("active");
 					$(".notification").fadeOut().removeClass("active");
 					$(".publish").fadeOut().removeClass("active");
-					$(".more").fadeOut().removeClass("active");	
+					$(".more").fadeOut().removeClass("active");
 				}
 				else{
-					$(".account").fadeOut().removeClass("active");	
+					$(".account").fadeOut().removeClass("active");
 				}
 			});
-			
+
 			$("a.btn-publish").click(function(e){
 				e.preventDefault();
 				if(!($(".publish").hasClass("active"))){
-					$(".publish").fadeIn().addClass("active");	
-					$(".account").fadeOut().removeClass("active");	
+					$(".publish").fadeIn().addClass("active");
+					$(".account").fadeOut().removeClass("active");
 					$(".notification").fadeOut().removeClass("active");
 					$(".more").fadeOut().removeClass("active");
-					
+
 				}
 				else{
 					$(".publish").fadeOut().removeClass("active");
 				}
 			});
-			
+
 			$("a.btn-more").click(function(e){
 				e.preventDefault();
 				if(!($(".more").hasClass("active"))){
-					$(".more").fadeIn().addClass("active");	
-					$(".account").fadeOut().removeClass("active");	
+					$(".more").fadeIn().addClass("active");
+					$(".account").fadeOut().removeClass("active");
 					$(".notification").fadeOut().removeClass("active");
-					$(".publish").fadeOut().removeClass("active");	
+					$(".publish").fadeOut().removeClass("active");
 				}
 				else{
-					$(".more").fadeOut().removeClass("active");	
+					$(".more").fadeOut().removeClass("active");
 				}
 			});
-			
+
 			$("a.help").click(function(e){
 				e.preventDefault();
-				$(".help-list").addClass("active");	
+				$(".help-list").addClass("active");
 				$(this).addClass("active");
-				$(".main-list").css("display", "none");	
+				$(".main-list").css("display", "none");
 			});
-			
+
 			$(".bookmark").click(function(e){
 				e.preventDefault();
 				if(!($(this).hasClass("active"))){
@@ -220,14 +220,14 @@
 					$(this).removeClass("active");
 				}
 			});
-			
+
 			$(".cd-response .form-display a").click(function(e){
 				e.preventDefault();
 				//alert("hello");
 				$(this).parents(".text-disabled").addClass("hidden");
 				$(".display-editor").addClass("active");
 			});
-			
+
 			$(".display-editor a.plus-icon").click(function(e){
 				e.preventDefault();
 				//alert("hello");
@@ -239,10 +239,10 @@
 				else{
 					$(this).removeClass("active").children("i").removeClass("fa-times").addClass("fa-plus");
 					$(".display-icons").removeClass("active");
-					$(".display-hidden").removeClass("hidden");	
+					$(".display-hidden").removeClass("hidden");
 				}
 			});
-			
+
 			$("a.btn-response-show").click(function(e){
 				e.preventDefault();
 				//alert("hello");
@@ -250,27 +250,27 @@
 					$(".display-response").addClass("active");
 					$(".cd-respond").addClass("hidden");
 			});
-			
+
 			$("a.btn-edit").click(function(e){
 				e.preventDefault();
 				$("#outer_email").addClass("hidden");
 				$("#set_email").addClass("active");
 			});
-			
+
 			$("#email_cancel").click(function(e){
 				e.preventDefault();
 				//alert("hello");
 				$("#outer_email").removeClass("hidden");
 				$("#set_email").removeClass("active");;
 			});
-			
+
 			$("#pass_cancel").click(function(e){
 				e.preventDefault();
 				//alert("hello");
 				$("#outer_pass").removeClass("hidden");
 				$("#set_pass").removeClass("active");
 			});
-			
+
 			$("a.btn-password").click(function(e){
 				e.preventDefault();
 				$("#outer_pass").addClass("hidden");
@@ -325,10 +325,10 @@
 					});
 
 			});
-			
-		});	
 
-			
+		});
+
+
 	</script>
   </body>
 </html>
