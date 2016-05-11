@@ -27,11 +27,13 @@
     public function search()
     {
       $query=Input::get('search');
+      
       $all_stories=array();
       $arr=array();       
       $users=User::where('username','like',"%".$query."%")->get();
       $tags=Tag::where('name','like',"%".$query."%")->get();
       $stories=Story::get();
+      if($query!=NULL){
       foreach($stories as $story)
       {
         $content=$story->content;
@@ -49,6 +51,10 @@
       $arrstring = implode(",", $arr);
       $query1="select * from story where id in (".$arrstring.") and type=1";
       $all_stories = DB::select(DB::raw($query1));
+      }
+      }else{
+        $users=array();
+        $tags=array();
       }
       return View::make('search_new')->with('all_stories',$all_stories)->with('tags',$tags)->with('users',$users);
 

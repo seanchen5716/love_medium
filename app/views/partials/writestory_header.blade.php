@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Medium</title>
+    <title>Thingsは、生きる、活かす</title>
 
     <!-- Bootstrap -->
     <link href="{{URL::to('editor/css/normalize.css')}}" media="screen" rel="stylesheet" type="text/css">
@@ -76,7 +76,7 @@
 					 
 					  <ul class="nav navbar-nav navbar-right">
 						<li>
-							<a  class="btn btn-green btn-publish">Publish <i class="fa fa-angle-down"></i></a>
+							<a  class="btn btn-green btn-publish">公開　<i class="fa fa-angle-down"></i></a>
 						</li>
 						<li>
 							<a  class="btn-drop btn-account"><i class="fa fa-user"></i></a>
@@ -88,27 +88,27 @@
 				
 				<!-- Arrow Box -->
 				<div class="arrow_box publish clearfix">
-					<h5>Ready to publish?</h5>	
-					<span style="color: #aaa;">Add or change tags (up to 3) so your story reaches more people:</span>
+					<h5>公開しますか？</h5>	
+					<span style="color: #aaa;">ハッシュタグを入力して、たくさんの人に見てもらいましょう:</span>
 					<form id="publish_form" method="POST" action="{{route('publish')}}">
-					<input type="text" class="form-control" name="tag_name" rows="3" placeholder="Add a tag...">
+					<input type="text" class="form-control" name="tag_name" rows="3" placeholder="タグを追加...">
 					<input type="hidden" name="story_id" value="{{$id}}">
 					<hr>
-					<span style="color: #aaa;position: relative;top: 5px;">Ready to Publish</span>
-					<button class="btn btn-green btn-sm pull-right" style="border-radius: 50px;" type="submit">Publish</button>
+					<span style="color: #aaa;position: relative;top: 5px;">用意できました</span>
+					<button class="btn btn-green btn-sm pull-right" style="border-radius: 50px;" type="submit">公開</button>
 					</form>
 				</div>	
 				
 						<div class='arrow_box account' style="right: -43px;width: 280px;">
 							<ul>
-								<li><a href="{{route('blog_editor')}}" style="text-decoration: none; color:inherit">New Story</li>
-								<li><a href="{{route('drafts')}}" style="text-decoration: none; color:inherit">Drafts and stories</li>
+								<li><a href="{{route('blog_editor')}}" style="text-decoration: none; color:inherit">新しい日記</li>
+								<li><a href="{{route('drafts')}}" style="text-decoration: none; color:inherit">編集・下書き</li>
 							</ul>
 							<hr/>
 							<ul style="font-size: 12px;">
-								<li><a href="{{route('profile')}}" style="text-decoration: none; color:inherit">Profile</li>
-								<li><a href="{{route('settings_medium')}}" style="text-decoration: none; color:inherit">Settings</li>
-								<li><a href="{{route('logout')}}" style="text-decoration: none; color:inherit">Sign Out</li>
+								<li><a href="{{route('profile')}}" style="text-decoration: none; color:inherit">プロフィール</li>
+								<li><a href="{{route('settings_medium')}}" style="text-decoration: none; color:inherit">設定</li>
+								<li><a href="{{route('logout')}}" style="text-decoration: none; color:inherit">ログアウト</li>
 							</ul>
 						</div>
 				<div class="modal fade" id="myModal" style="padding-right: 0px !important;">
@@ -121,7 +121,7 @@
 							<div class="first-content">
 								<div class="main-content">
 									<img src="{{asset('img/logo-black.png')}}" alt="" style="width: 100px;" />
-									<h2>Medium</h2>
+									<h2>Things</h2>
 									<h4>Sign in to Medium or create an account</h4>
 									<a class=" btn btn-green sign-link" style="border-radius: 50px;padding: 5px 14px;">Sign In</a>
 									<a  class="btn btn-green signup-link" style="border-radius: 50px;padding: 5px 14px;">Sign Up</a>

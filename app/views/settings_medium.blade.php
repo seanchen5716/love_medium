@@ -6,17 +6,17 @@
 					<div class="content-display">
 						<div class="container" style="max-width: 800px;">
 							<div class="settings">
-								<h1>Settings</h1>
+								<h1>設定</h1>
 								<div class="setting-item clearfix">
-									<h6>Email Settings</h6>
+									<h6>メールアドレス更新</h6>
 									<hr>
 									<div class="edit-outer clearfix" id="outer_email">
 										<div class="setting-details">
-											<h4>Your email</h4>
+											<h4>メールアドレス</h4>
 											<p>{{$user->email}}</p>
 										</div>
 										<div class="button pull-right">
-											<a href="#" class="btn btn-default btn-edit" style="border-radius: 50px;margin-top:25px;">Edit Email</a>
+											<a href="#" class="btn btn-default btn-edit" style="border-radius: 50px;margin-top:25px;">メールアドレス設定</a>
 										</div>
 									</div>
 									<div class="setting-email-form setting-form" id="set_email">
@@ -24,14 +24,14 @@
 											<div class="row">
 												<div class="col-md-9">
 													<div class="form-group">
-														<label>Email address</label>
+														<label>メールアドレス更新</label>
 														<input type="email" class="form-control" id="email" placeholder="Email" value="{{$user->email}}">
 													</div>
 												</div>
 												<div class="col-md-3 clearfix">
 													<div class="form-group pull-right">
-														<button type="submit" id="email_save" class="btn btn-green btn-save">Save</button>
-														<button type="submit" id="email_cancel" class="btn btn-default btn-cancel">Cancel</button>
+														<button type="submit" id="email_save" class="btn btn-green btn-save">保存</button>
+														<button type="submit" id="email_cancel" class="btn btn-default btn-cancel">キャンセル</button>
 													</div>
 												</div>
 											</div>
@@ -40,7 +40,7 @@
 
 									<div class="edit-outer clearfix" id="outer_pass">
 										<div class="setting-details">
-											<h4>Your Password</h4>
+											<h4>パスワード</h4>
 											<p>********</p>
 										</div>
 										<div class="button pull-right">
@@ -53,13 +53,13 @@
 												<div class="col-md-9">
 													<div class="form-group">
 														<label>Password</label>
-														<input type="password" id="password" class="form-control" placeholder="Password" value="******">
+														<input type="password" id="password" class="form-control" placeholder="Password">
 													</div>
 												</div>
 												<div class="col-md-3 clearfix">
 													<div class="form-group pull-right">
-														<button type="submit" id="pass_save" class="btn btn-green btn-save">Save</button>
-														<button type="submit" id="pass_cancel" class="btn btn-default btn-cancel">Cancel</button>
+														<button type="submit" id="pass_save" class="btn btn-green btn-save">保存</button>
+														<button type="submit" id="pass_cancel" class="btn btn-default btn-cancel">キャンセル</button>
 													</div>
 												</div>
 											</div>
@@ -86,36 +86,36 @@
 						<div class="first-content">
 							<div class="main-content">
 								<img src="{{asset('img/logo-black.png')}}" alt="" style="width: 100px;" />
-								<h2>Medium</h2>
-								<h4>Sign in to Medium or create an account</h4>
-								<a class=" btn btn-green sign-link" style="border-radius: 50px;padding: 5px 14px;">Sign In</a>
-								<a  class="btn btn-green signup-link" style="border-radius: 50px;padding: 5px 14px;">Sign Up</a>
+								<h2>Things</h2>
+								<h4>ログイン、または新しいアカウントを登録</h4>
+								<a class=" btn btn-green sign-link" style="border-radius: 50px;padding: 5px 14px;">ログイン</a>
+								<a  class="btn btn-green signup-link" style="border-radius: 50px;padding: 5px 14px;">登録</a>
 							</div>
-
+							
 							<div class="signin-content signin" style="margin: 0px;">
-								<h2>Medium</h2>
-								<h4>Enter your credentials to sign in</h4>
+								<h2>Things</h2>
+								<h4>メールアドレスとパスワードを入力してログインする</h4>
 								<form method="POST" action="{{route('login')}}">
 									<div class="form-group">
 										<input type="" name="email" class="form-control" id="exampleInputEmail1" placeholder="yourname@example.com">
-										<input type="password" name="password" class="form-control" placeholder="Password" value="admin" required>
+										<input type="password" name="password" class="form-control" placeholder="Password" required>
 									</div>
-									<button type="submit" class="btn btn-default btn-green" style="border-radius: 50px;padding: 5px 14px;">Sign in</button>
-									<button type="button" class="btn btn-default" data-dismiss="modal" style="border-radius: 50px;padding: 5px 14px;">Cancel</button>
+									<button type="submit" class="btn btn-default btn-green" style="border-radius: 50px;padding: 5px 14px;">ログイン</button>
+									<button type="button" class="btn btn-default" data-dismiss="modal" style="border-radius: 50px;padding: 5px 14px;">キャンセル</button>
 								</form>
 							</div>
 
 							<div class="signin-content signup" style="margin: 0px;">
-								<h2>Medium</h2>
-								<h4>Enter your credentials to sign up</h4>
+								<h2>Things</h2>
+								<h4>名前、メールアドレスとパスワードを入力して登録する</h4>
 								<form method="POST" action="{{route('register')}}">
 									<div class="form-group">
 										<input name="username" type="text" class="form-control" placeholder="Username" value="{{Input::old('username')}}" required>
 										<input type="" name="email" class="form-control" id="exampleInputEmail1" placeholder="yourname@example.com">
-										<input type="password" name="password" class="form-control" placeholder="Password" value="admin" required>
+										<input type="password" name="password" class="form-control" placeholder="Password" required>
 									</div>
-									<button type="submit" class="btn btn-default btn-green" style="border-radius: 50px;padding: 5px 14px;">Sign Up</button>
-									<button type="button" class="btn btn-default" data-dismiss="modal" style="border-radius: 50px;padding: 5px 14px;">Cancel</button>
+									<button type="submit" class="btn btn-default btn-green" style="border-radius: 50px;padding: 5px 14px;">登録</button>
+									<button type="button" class="btn btn-default" data-dismiss="modal" style="border-radius: 50px;padding: 5px 14px;">キャンセル</button>
 								</form>
 							</div>
 						</div>

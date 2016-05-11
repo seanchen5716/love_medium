@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Medium</title>
+    <title>Thingsは、生きる、活かす</title>
 
     <!-- Bootstrap -->
     <link href="{{URL::to('editor/css/normalize.css')}}" media="screen" rel="stylesheet" type="text/css">
@@ -43,7 +43,7 @@
         <?php $session=0; ?>
         		<center><div id="div1" style="display:none;border:1px solid #ddd;border-radius: 4px;padding: 30px 0px;width: 400px;background-color:white;  position: absolute;z-index: 1000;color: #02b875;left:0px;right:0px;margin: 0px auto;padding: 25px;font-size: 20px;
 }">{{Session::get('success')}}</div></center>
-<?php $session=1;?> 
+
         @endif
 		<!-- Outer Starts -->
 
@@ -56,7 +56,6 @@
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
 					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -67,12 +66,12 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					  <ul class="nav navbar-nav nav-text">
-						<li class="active"><a data-toggle="tab" href="#home">Latest Picks <span class="sr-only">(current)</span></a></li>
-						<li><a data-toggle="tab" href="#top">Top Stories</a></li>
+						<li class="active"><a data-toggle="tab" href="#home">　最新　<span class="sr-only">(current)</span></a></li>
+						<li><a data-toggle="tab" href="#top">　人気　</a></li>
 						@if(Sentry::check())
-						<li><a data-toggle="tab" href="#bkmrk_pg">Bookmarks</a></li>
+						<li><a data-toggle="tab" href="#bkmrk_pg">ブックマック</a></li>
 						@else
-						<li><a class="head-modal" data-toggle="modal" data-target="#myModal">Bookmarks</a></li>
+						<li><a class="head-modal" data-toggle="modal" data-target="#myModal">ブックマック</a></li>
 						@endif
 					  </ul>
 					 
@@ -83,15 +82,15 @@
 								  <div class="input-group-btn">
 									<button class="btn btn-default btn-submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 								  </div>
-								  <input type="text" class="form-control search-form" placeholder="Search Medium" name="search">
+								  <input type="text" class="form-control search-form" placeholder="タイトル、内容を検索" name="search">
 								</div>
 							</form>
 						</li>
 						<li>
 							@if(!Sentry::check())
-							<a class="btn head-modal head-modal"  data-toggle="modal" data-target="#myModal">Write a Story</a>
+							<a class="btn head-modal head-modal"  data-toggle="modal" data-target="#myModal">日記を書く</a>
 							@else
-							<a href="{{route('blog_editor')}}" class="btn">Write a Story</a>
+							<a href="{{route('blog_editor')}}" class="btn">日記を書く</a>
 							@endif
 						</li>
 						@if(Sentry::check())
@@ -100,25 +99,25 @@
 						</li>
                         @else
 						<li>
-							<a  class="btn btn-signin btn-green head-modal" data-toggle="modal" data-target="#myModal" style="color: #02b875; border-color: #02b875;">Sign In / Sign Up</a>
+							<a  class="btn btn-signin btn-green head-modal" data-toggle="modal" data-target="#myModal" style="color: #02b875; border-color: #02b875;">ログイン / 登録</a>
 						</li>
 						@endif
 					  </ul>
 					</div><!-- /.navbar-collapse -->
 				  </div><!-- /.container-fluid -->
 				</nav>
-			</div>
+			
 				
 					<div class='arrow_box account' id="acc_box" style="right: -43px;width: 280px;">
 						<ul>
-							<li><a href="{{route('blog_editor')}}" style="text-decoration: none; color:inherit">New Story</li>
-							<li><a href="{{route('drafts')}}" style="text-decoration: none; color:inherit">Drafts and stories</li>
+							<li><a href="{{route('blog_editor')}}" style="text-decoration: none; color:inherit">新しい日記</li>
+							<li><a href="{{route('drafts')}}" style="text-decoration: none; color:inherit">編集・下書き</li>
 						</ul>
 						<hr/>
 						<ul style="font-size: 12px;">
-							<li><a href="{{route('profile')}}" style="text-decoration: none; color:inherit">Profile</li>
-							<li><a href="{{route('settings_medium')}}" style="text-decoration: none; color:inherit">Settings</li>
-							<li><a href="{{route('logout')}}" style="text-decoration: none; color:inherit">Sign Out</li>
+							<li><a href="{{route('profile')}}" style="text-decoration: none; color:inherit">プロフィール</li>
+							<li><a href="{{route('settings_medium')}}" style="text-decoration: none; color:inherit">設定</li>
+							<li><a href="{{route('logout')}}" style="text-decoration: none; color:inherit">ログアウト</li>
 						</ul>
 					</div>
 			<div class="modal fade" id="myModal" style="padding-right: 0px !important;">
@@ -131,36 +130,36 @@
 						<div class="first-content">
 							<div class="main-content">
 								<img src="{{asset('img/logo-black.png')}}" alt="" style="width: 100px;" />
-								<h2>Medium</h2>
-								<h4>Sign in to Medium or create an account</h4>
-								<a class=" btn btn-green sign-link" style="border-radius: 50px;padding: 5px 14px;">Sign In</a>
-								<a  class="btn btn-green signup-link" style="border-radius: 50px;padding: 5px 14px;">Sign Up</a>
+								<h2>Things</h2>
+								<h4>ログイン、または新しいアカウントを登録</h4>
+								<a class=" btn btn-green sign-link" style="border-radius: 50px;padding: 5px 14px;">ログイン</a>
+								<a  class="btn btn-green signup-link" style="border-radius: 50px;padding: 5px 14px;">登録</a>
 							</div>
 							
 							<div class="signin-content signin" style="margin: 0px;">
-								<h2>Medium</h2>
-								<h4>Enter your credentials to sign in</h4>
+								<h2>Things</h2>
+								<h4>メールアドレスとパスワードを入力してログインする</h4>
 								<form method="POST" action="{{route('login')}}">
 									<div class="form-group">
 										<input type="" name="email" class="form-control" id="exampleInputEmail1" placeholder="yourname@example.com">
-										<input type="password" name="password" class="form-control" placeholder="Password" value="admin" required>
+										<input type="password" name="password" class="form-control" placeholder="Password" required>
 									</div>
-									<button type="submit" class="btn btn-default btn-green" style="border-radius: 50px;padding: 5px 14px;">Sign in</button>
-									<button type="button" class="btn btn-default" data-dismiss="modal" style="border-radius: 50px;padding: 5px 14px;">Cancel</button>
+									<button type="submit" class="btn btn-default btn-green" style="border-radius: 50px;padding: 5px 14px;">ログイン</button>
+									<button type="button" class="btn btn-default" data-dismiss="modal" style="border-radius: 50px;padding: 5px 14px;">キャンセル</button>
 								</form>
 							</div>
 
 							<div class="signin-content signup" style="margin: 0px;">
-								<h2>Medium</h2>
-								<h4>Enter your credentials to sign up</h4>
+								<h2>Things</h2>
+								<h4>名前、メールアドレスとパスワードを入力して登録する</h4>
 								<form method="POST" action="{{route('register')}}">
 									<div class="form-group">
 										<input name="username" type="text" class="form-control" placeholder="Username" value="{{Input::old('username')}}" required>
 										<input type="" name="email" class="form-control" id="exampleInputEmail1" placeholder="yourname@example.com">
-										<input type="password" name="password" class="form-control" placeholder="Password" value="admin" required>
+										<input type="password" name="password" class="form-control" placeholder="Password" required>
 									</div>
-									<button type="submit" class="btn btn-default btn-green" style="border-radius: 50px;padding: 5px 14px;">Sign Up</button>
-									<button type="button" class="btn btn-default" data-dismiss="modal" style="border-radius: 50px;padding: 5px 14px;">Cancel</button>
+									<button type="submit" class="btn btn-default btn-green" style="border-radius: 50px;padding: 5px 14px;">登録</button>
+									<button type="button" class="btn btn-default" data-dismiss="modal" style="border-radius: 50px;padding: 5px 14px;">キャンセル</button>
 								</form>
 							</div>
 						</div>

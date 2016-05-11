@@ -43,9 +43,16 @@ body{
 	font-weight: 400;
 	margin: 7px 5px 0px;
 }
+.navbar-header .navbar-toggle{
+	margin-top:18px;
+}
+.navbar-header .navbar-toggle .icon-bar {
+    background-color: black;
+}
 .navbar-form{
 	padding: 0px;
 	margin-right: 5px;
+	margin-left: 5px;
 }
 .form-control{
 	padding: 7px 12px 7px 0px;
@@ -1020,7 +1027,7 @@ a.circle, .display-icons .circle{
 	border: 0px;box-shadow: none;height: auto;font-size: 40px;padding: 0px;
 }
 .profile-head .edit-form .userbio{
-	width: 100px;margin: 0px auto;
+	width: 190px;margin: 0px auto;
 }
 .profile-head .edit-form .userbio .form-control{
 	border: 0px;box-shadow: none;height: auto;font-size: 15px;
@@ -1065,4 +1072,13 @@ a.circle, .display-icons .circle{
 }
 .other-user-profile-content{
 	margin-bottom: 100px;
+}
+textarea#comment_txt{
+	border: 1px solid black;
+}
+.form-group #email{
+	border: 1px solid black;
+}
+.form-group #password{
+	border: 1px solid black;
 }

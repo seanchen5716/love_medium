@@ -115,11 +115,11 @@
 									<div class="form-group form-display">
 										@if(Sentry::check())
 										<a class="response" href="#">
-											<input type="text" class="form-control" placeholder="Write a response..." >
+											<input type="text" class="form-control" placeholder="コメントを残す" >
 										</a>
 										@else
 										<a href="#" data-toggle="modal" data-target="#myModal">
-											<input type="text" class="form-control" placeholder="Write a response..." >
+											<input type="text" class="form-control" placeholder="コメントを残す" >
 										</a>
 										@endif
 
@@ -132,23 +132,23 @@
 									
 									<div class="display-hidden">
 										<div class="form-group form-display">
-											<textarea id="comment_txt" class="form-control" rows="3"></textarea>
+											<textarea id="comment_txt" class="form-control"　placeholder="Type your comment here" rows="3"></textarea>
 										</div>
 									</div>
 									<div class="btn-group">
-										<button class="btn btn-green" id="comment_submit" type="submit" style="border-radius: 50px;">Publish</button>
+										<button class="btn btn-green" id="comment_submit" type="submit" style="border-radius: 50px;">公開</button>
 									</div>
 								</div>
 							</div> 	
 							
 							<hr>
 							
-							<h5 style="color: #000;margin-top: 50px;">Responses</h5>
+							<h5 style="color: #000;margin-top: 50px;">コメント</h5>
 							<hr>
 						
 							<div class="cd-respond clearfix">
 								<br/>
-								<a href="#" class="btn btn-default btn-response-show" type="submit" style="border-radius: 50px;margin: 15px 0px;">Show Response</a>
+								<a href="#" class="btn btn-default btn-response-show" type="submit" style="border-radius: 50px;margin: 15px 0px;">コメントを表示</a>
 							</div>
 							
 							<div class="display-response clearfix" id="response">

@@ -71,7 +71,7 @@
 							@if(count($rec_stories)>0)
 							<div class="profile-item cl-item">
 								<div class="text-center">
-									<a class="profile-text" style="">most recommended story</a>	
+									<a class="profile-text" style="">コメントが多い日記</a>	
 								</div>
 								
 								
@@ -176,7 +176,7 @@
 							<div class="profile-item">
 								
 								<div class="text-center">
-									<a  class="profile-text" style="">latest stories</a>	
+									<a  class="profile-text" style="">最新日記</a>	
 								</div>
 								<div class="container">
 							@foreach($stories as $story)
@@ -278,7 +278,7 @@
 									</div>
 									</div>
 									@else
-									<div style="margin-left: 45%;">No Stories posted yet..</div>
+									<div style="margin-left: 45%;">日記はありません。</div>
 									@endif	
 									
 							</div>
@@ -294,28 +294,49 @@
 	<script>
 		$(document).ready(function(){
 			$(".modal-body .signin-content").hide();
+			$(".modal-body .signin").hide();
+			$(".modal-body .signup").hide();
 			$(window).scroll(function(){
 				var scroll = $(window).scrollTop();
-				if (scroll >= 70) {
-					$(".c-right").addClass("active");
+				if (scroll >= 650) {
+					$(".header").removeClass("non-active").addClass("active");
 				}else {
-					$(".c-right").removeClass("active");
+					$(".header").removeClass("active");
 				}
+			});
+
+			$(".modal-body .signup").hide();
+			$(window).scroll(function(){
+				var scroll = $(window).scrollTop();
+				if (scroll >= 650) {
+					$(".header").removeClass("non-active").addClass("active");
+				}else {
+					$(".header").removeClass("active");
+				}
+			});
+
+			$("a.head-modal").click(function(e){
+				e.preventDefault();
+				$(".modal-body .main-content").show();
+				$(".modal-body .signin").hide();
+				$(".modal-body .signup").hide();
 			});
 			
 			$("a.sign-link").click(function(e){
 				e.preventDefault();
 				$(".modal-body .main-content").hide();
-				$(".modal-body .signin-content").show();
+				$(".modal-body .signin").show();
 			});
-			
+			$("a.signup-link").click(function(e){
+				e.preventDefault();
+				$(".modal-body .main-content").hide();
+				$(".modal-body .signup").show();
+			});
 			$("a.btn-notify").click(function(e){
 				e.preventDefault();
 				if(!($(".notification").hasClass("active"))){
 					$(".notification").fadeIn().addClass("active");	
 					$(".account").fadeOut().removeClass("active");
-					$(".publish").fadeOut().removeClass("active");
-					$(".more").fadeOut().removeClass("active");	
 				}
 				else{
 					$(".notification").fadeOut().removeClass("active");	
@@ -327,13 +348,15 @@
 				if(!($(".account").hasClass("active"))){
 					$(".account").fadeIn().addClass("active");	
 					$(".notification").fadeOut().removeClass("active");
-					$(".publish").fadeOut().removeClass("active");
-					$(".more").fadeOut().removeClass("active");	
 				}
 				else{
 					$(".account").fadeOut().removeClass("active");	
 				}
 			});
+
+		  $('.account').mouseleave(function(){
+		  	$(".account").fadeOut().removeClass("active");	
+		  });
 			
 			$("a.btn-publish").click(function(e){
 				e.preventDefault();

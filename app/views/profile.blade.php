@@ -19,7 +19,7 @@
 									<input type="text" class="form-control" placeholder="Username" value="{{$user->username}}">
 								</div>
 								<div class="form-group userbio" style="">
-									<input type="text" name="bio" class="form-control" placeholder="Enter your bio">
+									<input type="text" name="bio" class="form-control" placeholder="名前を入力してください。">
 								</div>
 								<div class="form-group upload" style="">
 									<input type="file" name="pic" id="exampleInputFile">
@@ -28,15 +28,15 @@
 								<h6>Following</h6>
 								<h4>{{$following}}</h4>
 								<div class="button" style="margin: 40px 0px;">
-									<button type="submit" class="btn btn-default btn-green btn-save" style="border-radius: 50px;">Submit</button>
-									<button type="submit" class="btn btn-default btn-cancel" style="border-radius: 50px;">Cancel</button>
+									<button type="submit" class="btn btn-default btn-green btn-save" style="border-radius: 50px;">確定</button>
+									<button type="submit" class="btn btn-default btn-cancel" style="border-radius: 50px;">キャンセル</button>
 								</div>
 							</form>
 							<div class="following-outer">
 								<h6>Following</h6>
 								<h4>{{$following}}</h4>
 								<div class="button edit-btn-outer">
-									<a  class="btn btn-default edit-profile-btn" style="border-radius: 50px;">Edit Profile</a>
+									<a  class="btn btn-default edit-profile-btn" style="border-radius: 50px;">プロフィール編集</a>
 						
 								</div>
 							</div>
@@ -51,7 +51,7 @@
 			@if(count($rec_stories)>0)
 			<div class="profile-item cl-item">
 				<div class="text-center">
-					<a  class="profile-text" style="">most recommended story</a>	
+					<a  class="profile-text" style="">コメントが多い日記</a>	
 				</div>
 				
 				
@@ -156,7 +156,7 @@
 			<div class="profile-item">
 				
 				<div class="text-center">
-					<a class="profile-text" style="">latest stories</a>	
+					<a class="profile-text" style="">最新日記</a>	
 				</div>
 				<div class="container">
 			@foreach($stories as $story)
@@ -258,7 +258,7 @@
 					</div>
 					</div>
 					@else
-					<div style="margin-left: 45%;">No Stories posted yet..</div>
+					<div style="margin-left: 45%;">日記はありません。</div>
 					@endif	
 					
 			</div>

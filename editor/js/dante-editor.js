@@ -610,7 +610,7 @@
     };
 
     Editor.prototype.renderTitle = function() {
-      return "<h3 class='graf graf--h3'>" + (this.title.length > 0 ? this.title : this.title_placeholder) + "</h3>";
+      return "<h3 class='graf graf--h3 graf--first'>" + (this.title.length > 0 ? this.title : this.title_placeholder) + "</h3>";
     };
 
     Editor.prototype.template = function() {

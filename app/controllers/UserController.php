@@ -209,11 +209,11 @@ $posts = Post::whereIn('blog_id', $blogs )->with('regularPost', 'rebloggedPost',
       }
       catch (Cartalyst\Sentry\Users\WrongPasswordException $e)
       {
-        return Redirect::route('login')->withInput(Input::except('password'))->with('error', 'Wrong password, try again.');
+        return Redirect::route('login')->withInput(Input::except('password'))->with('error', 'パスワード間違えました。もう一度確認してください。');
       }
       catch (Cartalyst\Sentry\Users\UserNotFoundException $e)
       {
-        return Redirect::route('login')->withInput(Input::except('password'))->with('error', 'User was not found.');
+        return Redirect::route('login')->withInput(Input::except('password'))->with('error', 'アカウントが見つかりません。');
       }
       catch (Cartalyst\Sentry\Users\UserNotActivatedException $e)
       {
@@ -221,22 +221,22 @@ $posts = Post::whereIn('blog_id', $blogs )->with('regularPost', 'rebloggedPost',
       }
       catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e)
       {
-        return Redirect::route('login')->withInput(Input::except('password'))->with('error', 'User is suspended.');
+        return Redirect::route('login')->withInput(Input::except('password'))->with('error', 'アカウントは使用停止になっています。');
       }
       catch (Cartalyst\Sentry\Throttling\UserBannedException $e)
       {
-        return Redirect::route('login')->withInput(Input::except('password'))->with('error', 'User is banned.');
+        return Redirect::route('login')->withInput(Input::except('password'))->with('error', 'アカウントは使用禁止になっています。');
       }
 
       // Redirect to dashboard
-      return Redirect::route('login')->with('success', 'Login Successful');
+      return Redirect::route('login')->with('success', 'ログインしました');
       //return Redirect::route('storydashboard')->with('success', 'Login Successful');
     }
 
     public function logoutUser()
     {
       Sentry::logout();
-      return Redirect::route('login')->with('success', 'Logout Successful');
+      return Redirect::route('login')->with('success', 'ログアウトしました');
     }
 
     public function createBlog()

@@ -120,7 +120,7 @@
 								</div>
 								@endforeach
 								@else
-								<div style="margin-top: 3%;"> No Stories Available </div>
+								<div style="margin-top: 3%;"> 日記はありません。 </div>
 								@endif
 								<!-- Content Item -->
 								</div>
@@ -225,7 +225,7 @@
 								</div>
 								@endforeach
 								@else
-								<div style="margin-top: 3%;"> No Stories Available </div>
+								<div style="margin-top: 3%;"> 日記はありません。 </div>
 								@endif
   
 						    </div>
@@ -331,7 +331,7 @@
 							</div>
 							@endforeach
 							@else
-							<div style="margin-top: 3%;"> No bookmarked Stories </div>
+							<div style="margin-top: 3%;"> ブックマックはありません。 </div>
 							@endif
 						    </div>
 							  </div>
@@ -343,7 +343,7 @@
 							<div class="c-right">
 								<div class="cr-top clearfix">
 									<hr>
-									<h5 class="pull-left">Featured Tags</h5>	
+									<h5 class="pull-left">タグ</h5>	
 								</div>
 								<div class="cr-content clearfix">
 									@if(count($tags)>0)
@@ -355,11 +355,11 @@
 								<div class="cr-advertise">
 									<img src="{{asset('img/advertise.png')}}" alt="" />
 									<div class="cr-adv-content">
-										<h3>Anyone can write on Medium.</h3>
+										<h3>自分のThingsを書きましょう！</h3>
 										@if(!Sentry::check())
-										<a class="head-modal" data-toggle="modal" data-target="#myModal">Start writing</a>
+										<a class="head-modal" data-toggle="modal" data-target="#myModal">書く</a>
 										@else
-										<a href="{{route('blog_editor')}}" >Start writing</a>
+										<a href="{{route('blog_editor')}}" >書く</a>
 										@endif
 
 									</div>
@@ -368,7 +368,7 @@
 								<div class="cr-bottom">
 									<div class="cr-top clearfix" style="padding: 0px 0px 20px;">
 										<hr>
-										<h5 class="pull-left">Top stories on medium</h5>	
+										<h5 class="pull-left">ランキング</h5>	
 									</div>
 
 									<div class="cr-listing">

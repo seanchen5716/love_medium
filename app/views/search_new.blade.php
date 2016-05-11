@@ -418,7 +418,7 @@
 								<form method="POST" action="{{route('login')}}">
 									<div class="form-group">
 										<input type="" name="email" class="form-control" id="exampleInputEmail1" placeholder="yourname@example.com">
-										<input type="password" name="password" class="form-control" placeholder="Password" value="admin" required>
+										<input type="password" name="password" class="form-control" placeholder="Password" required>
 									</div>
 									<button type="submit" class="btn btn-default btn-green" style="border-radius: 50px;padding: 5px 14px;">Sign in</button>
 									<button type="button" class="btn btn-default" data-dismiss="modal" style="border-radius: 50px;padding: 5px 14px;">Cancel</button>
@@ -432,7 +432,7 @@
 									<div class="form-group">
 										<input name="username" type="text" class="form-control" placeholder="Username" value="{{Input::old('username')}}" required>
 										<input type="" name="email" class="form-control" id="exampleInputEmail1" placeholder="yourname@example.com">
-										<input type="password" name="password" class="form-control" placeholder="Password" value="admin" required>
+										<input type="password" name="password" class="form-control" placeholder="Password" required>
 									</div>
 									<button type="submit" class="btn btn-default btn-green" style="border-radius: 50px;padding: 5px 14px;">Sign Up</button>
 									<button type="button" class="btn btn-default" data-dismiss="modal" style="border-radius: 50px;padding: 5px 14px;">Cancel</button>

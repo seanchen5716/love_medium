@@ -9,7 +9,7 @@ return array(
 	|
 	| Enter your Domain name here
 	| eg) 'domain' => 'example.com'
-	|
+	| 
 	| Don't enter it as www.example.com or http://example.com
 	|
 	*/
@@ -24,10 +24,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => '13.71.148.229',
-			'database'  => 'lovemedium',
+			'host'      => '127.0.0.1',
+			'database'  => 'medium',
 			'username'  => 'root',
-			'password'  => 'bitnami',
+			'password'  => '12345',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

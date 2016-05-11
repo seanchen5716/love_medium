@@ -56,7 +56,7 @@
 								  <div class="input-group-btn">
 									<button class="btn btn-default btn-submit" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 								  </div>
-								  <input type="text" class="form-control search-form" placeholder="Search Medium" name="search">
+								  <input type="text" class="form-control search-form" placeholder="タイトル、内容を検索" name="search">
 								</div>
 							</form>
 						</li>
@@ -66,7 +66,7 @@
 						</li>
                         @else
 						<li>
-							<a href="#" class="btn btn-signin btn-green" data-toggle="modal" data-target="#myModal" style="color: #02b875; border-color: #02b875;">Sign In / Sign Up</a>
+							<a href="#" class="btn btn-signin btn-green" data-toggle="modal" data-target="#myModal" style="color: #02b875; border-color: #02b875;">ログイン / 登録</a>
 						</li>
 						@endif
 					  </ul>
@@ -77,14 +77,14 @@
 					
 					<div class='arrow_box account' style="right: -43px;width: 280px;">
 						<ul>
-							<li><a href="{{route('blog_editor')}}" style="text-decoration: none; color:inherit">New Story</li>
-							<li><a href="{{route('drafts')}}" style="text-decoration: none; color:inherit">Drafts and stories</li>
+							<li><a href="{{route('blog_editor')}}" style="text-decoration: none; color:inherit">新しい日記</li>
+							<li><a href="{{route('drafts')}}" style="text-decoration: none; color:inherit">編集・下書き</li>
 						</ul>
 						<hr/>
 						<ul style="font-size: 12px;">
-							<li><a href="{{route('profile')}}" style="text-decoration: none; color:inherit">Profile</li>
-							<li><a href="{{route('settings_medium')}}" style="text-decoration: none; color:inherit">Settings</li>
-							<li><a href="{{route('logout')}}" style="text-decoration: none; color:inherit">Sign Out</li>
+							<li><a href="{{route('profile')}}" style="text-decoration: none; color:inherit">プロフィール</li>
+							<li><a href="{{route('settings_medium')}}" style="text-decoration: none; color:inherit">設定</li>
+							<li><a href="{{route('logout')}}" style="text-decoration: none; color:inherit">ログアウト</li>
 						</ul>
 					</div>
 				<div class="story-box">
@@ -97,14 +97,14 @@
 									<div class="col-md-6">
 										<div class="line-bar">
 											<h1>
-												Your stories
+												日記一覧
 											</h1>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="line-bar">
 											<ul>
-												<a href="{{route('blog_editor')}}" class="btn">Write a Story</a>
+												<a href="{{route('blog_editor')}}" class="btn">日記を書く</a>
 											</ul>
 										</div>
 									</div>
@@ -117,13 +117,13 @@
 	      								   if($title != NULL && $title->innertext != NULL && $title->innertext!='</br>' && $title->innertext!='<br>')
 	      								   $var=$title->plaintext;
 	      								   else
-	      								   $var="Untitled";
+	      								   $var="タイトルなし";
 	      								   $type=$story->type;
 	      								   $last_updated=strtotime($story->updated_at);
 	      								   if($type==2)
-	      								   $text="Last updated at ".date('F jS Y', $last_updated);
+	      								   $text="下書き / 最終更新時間:".date('Y/m/d H:i', $last_updated);
 	      								   else if($type==1)
-	      								   $text="Published";
+	      								   $text="公開中 / 最終更新時間:".date('Y/m/d H:i', $last_updated);
 	      								   ?>
 											<a href="{{route('display-story',array($story->id))}}" style="text-decoration: none; color:inherit">
 											<h3><b>{{$var}}</b></h3>
@@ -137,8 +137,8 @@
 											 </span>
 											
 											<ul class="dropdown-menu" style="margin-left:<?php echo (strlen($text)*6)?>px">
-											  <li><a href="{{route('edit-story',array($story->id))}}">Edit</a></li>
-											  <li><a href="{{route('delete',array($story->id))}}">Delete</a></li>
+											  <li><a href="{{route('edit-story',array($story->id))}}">編集</a></li>
+											  <li><a href="{{route('delete',array($story->id))}}">削除</a></li>
 											</ul>
 										</div>
 									</div>
@@ -167,36 +167,36 @@
 						<div class="first-content">
 							<div class="main-content">
 								<img src="{{asset('img/logo-black.png')}}" alt="" style="width: 100px;" />
-								<h2>Medium</h2>
-								<h4>Sign in to Medium or create an account</h4>
-								<a href="#" class=" btn btn-green sign-link" style="border-radius: 50px;padding: 5px 14px;">Sign In</a>
-								<a href="#" class="btn btn-green signup-link" style="border-radius: 50px;padding: 5px 14px;">Sign Up</a>
+								<h2>Things</h2>
+								<h4>ログイン、または新しいアカウントを登録</h4>
+								<a class=" btn btn-green sign-link" style="border-radius: 50px;padding: 5px 14px;">ログイン</a>
+								<a  class="btn btn-green signup-link" style="border-radius: 50px;padding: 5px 14px;">登録</a>
 							</div>
 							
 							<div class="signin-content signin" style="margin: 0px;">
-								<h2>Medium</h2>
-								<h4>Enter your credentials to sign in</h4>
+								<h2>Things</h2>
+								<h4>メールアドレスとパスワードを入力してログインする</h4>
 								<form method="POST" action="{{route('login')}}">
 									<div class="form-group">
 										<input type="" name="email" class="form-control" id="exampleInputEmail1" placeholder="yourname@example.com">
-										<input type="password" name="password" class="form-control" placeholder="Password" value="admin" required>
+										<input type="password" name="password" class="form-control" placeholder="Password" required>
 									</div>
-									<button type="submit" class="btn btn-default btn-green" style="border-radius: 50px;padding: 5px 14px;">Sign in</button>
-									<button type="button" class="btn btn-default" data-dismiss="modal" style="border-radius: 50px;padding: 5px 14px;">Cancel</button>
+									<button type="submit" class="btn btn-default btn-green" style="border-radius: 50px;padding: 5px 14px;">ログイン</button>
+									<button type="button" class="btn btn-default" data-dismiss="modal" style="border-radius: 50px;padding: 5px 14px;">キャンセル</button>
 								</form>
 							</div>
 
 							<div class="signin-content signup" style="margin: 0px;">
-								<h2>Medium</h2>
-								<h4>Enter your credentials to sign up</h4>
+								<h2>Things</h2>
+								<h4>名前、メールアドレスとパスワードを入力して登録する</h4>
 								<form method="POST" action="{{route('register')}}">
 									<div class="form-group">
 										<input name="username" type="text" class="form-control" placeholder="Username" value="{{Input::old('username')}}" required>
 										<input type="" name="email" class="form-control" id="exampleInputEmail1" placeholder="yourname@example.com">
-										<input type="password" name="password" class="form-control" placeholder="Password" value="admin" required>
+										<input type="password" name="password" class="form-control" placeholder="Password" required>
 									</div>
-									<button type="submit" class="btn btn-default btn-green" style="border-radius: 50px;padding: 5px 14px;">Sign Up</button>
-									<button type="button" class="btn btn-default" data-dismiss="modal" style="border-radius: 50px;padding: 5px 14px;">Cancel</button>
+									<button type="submit" class="btn btn-default btn-green" style="border-radius: 50px;padding: 5px 14px;">登録</button>
+									<button type="button" class="btn btn-default" data-dismiss="modal" style="border-radius: 50px;padding: 5px 14px;">キャンセル</button>
 								</form>
 							</div>
 						</div>

@@ -9,7 +9,7 @@ return array(
 	|
 	| Enter your Domain name here
 	| eg) 'domain' => 'example.com'
-	|
+	| 
 	| Don't enter it as www.example.com or http://example.com
 	|
 	*/
