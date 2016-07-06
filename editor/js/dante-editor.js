@@ -505,9 +505,9 @@
       this.store_url = opts.store_url;
       this.store_method = opts.store_method || "POST";
       this.id = opts.id;
-      this.spell_check = opts.spellcheck || false;
+      this.spell_check = opts.spellcheck || true;
       this.disable_title = opts.disable_title || false;
-      this.store_interval = opts.store_interval || 15000;
+      this.store_interval = opts.store_interval || 1500;
       this.paste_element_id = "#dante-paste-div";
       this.tooltip_class = opts.tooltip_class || Dante.Editor.Tooltip;
       opts.base_widgets || (opts.base_widgets = ["uploader", "embed", "embed_extract"]);
@@ -584,6 +584,14 @@
         return this.store();
       } else {
         utils.log("content changed! update");
+        $('.graf--first').removeAttr('style');
+        $('h4').removeAttr('style');
+        $('span').removeAttr('style');
+        if($('.graf--first').prop("tagName").toLowerCase() == 'h1'){
+          $('.graf--first').replaceWith(function() {
+            $(this).replaceWith("<h3 class='graf graf--h3 graf--first'>"+$(this).text()+"</h3>")
+          });
+        }
         this.content = this.getContent();
         return $.ajax({
           url: this.store_url,
@@ -849,7 +857,7 @@
       var text;
       this.editor_menu.hide();
       text = this.getSelectedText();
-      if (!$(anchor_node).is(".graf--mixtapeEmbed, .graf--figure") && !_.isEmpty(text.trim())) {
+      if (!$(anchor_node).is(".graf--mixtapeEmbed, .graf--figure, .graf--first") && !_.isEmpty(text.trim())) {
         this.current_node = anchor_node;
         return this.displayMenu();
       }
@@ -929,7 +937,11 @@
       this.handleTextSelection(anchor_node);
       this.hidePlaceholder(anchor_node);
       this.markAsSelected(anchor_node);
-      return this.displayTooltipAt(anchor_node);
+      if (!$(anchor_node).is(".graf--first")) {
+        return this.displayTooltipAt(anchor_node);
+      } else {
+        return;
+      }
     };
 
     Editor.prototype.scrollTo = function(node) {
@@ -1068,6 +1080,8 @@
     Editor.prototype.handlePaste = function(ev) {
       var cbd, pastedText;
       utils.log("pasted!");
+      
+
       this.aa = this.getNode();
       pastedText = void 0;
       if (window.clipboardData && window.clipboardData.getData) {
@@ -1511,7 +1525,8 @@
         case "h5":
         case "h6":
           if (name === "h1") {
-            new_el = $("<h2 class='graf graf--h2'>" + ($(n).text()) + "</h2>");
+            /* new_el = $("<h2 class='graf graf--h2'>" + ($(n).text()) + "</h2>"); */
+            new_el = $("<h3 class='graf graf--h3'>" + ($(n).text()) + "</h3>");
             $(n).replaceWith(new_el);
             this.setElementName(n);
           } else {
@@ -1730,7 +1745,7 @@
       var childs;
       childs = $(this.el).find(".section-inner").children();
       childs.removeClass("graf--last , graf--first");
-      childs.first().addClass("graf--first");
+      childs.first().addClass("graf graf--h3 graf--first");
       return childs.last().addClass("graf--last");
     };
 
@@ -2429,10 +2444,12 @@
       });
     };
 
-    Tooltip.prototype.render = function() {
+    Tooltip.prototype.render = function(anchor_node) {
+      if (!$(anchor_node).is(".graf--first")) {
       $(this.el).html(this.template());
       $(this.el).addClass("is-active");
       return this;
+      }
     };
 
     Tooltip.prototype.toggleOptions = function() {
@@ -2651,7 +2668,8 @@
             'indent', 'outdent', 'bold', 'italic', 'underline', 'createlink'
           ]
          */
-        buttons: ['bold', 'italic', 'h2', 'h3', 'h4', 'blockquote', 'createlink']
+        /* buttons: ['bold', 'italic', 'h2', 'h3', 'h4', 'blockquote', 'createlink']*/
+        buttons: ['bold', 'h4', 'p', 'blockquote', 'createlink']
       };
     };
 

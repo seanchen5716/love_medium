@@ -145,14 +145,14 @@
 			
 			$(".cd-response .form-display a").click(function(e){
 				e.preventDefault();
-				//alert("hello");
+				alert("hello");
 				$(this).parents(".text-disabled").addClass("hidden");
 				$(".display-editor").addClass("active");
 			});
 			
 			$("a.btn-response-show").click(function(e){
 				e.preventDefault();
-				//alert("hello");
+				alert("hello1");
 					$(this).addClass("active").children("i").addClass("fa-times").removeClass("fa-plus");
 					$(".display-response").addClass("active");
 					$(".cd-respond").addClass("hidden");

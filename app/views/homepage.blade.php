@@ -45,7 +45,7 @@
       								   if($title && $title->innertext != NULL && $title->innertext!='</br>' && $title->innertext!='<br>')
       								   $var=htmlentities($title->outertext);
       								   else
-      								   $var="<h3> Untitled </h3>";
+      								   $var="<h3> タイトル無し </h3>";
       								   for($i=0;$i<substr_count($html,'<p');$i++)
       								   {
       								   $body=$doc->find("p",$i);
@@ -55,11 +55,9 @@
       								   if($body)
       								   $str_bd=$body->innertext;
       								   else
-      								   $str_bd="No story content";
-      								   if (str_word_count($str_bd, 0) > 100) {
-      								       $words = str_word_count($str_bd, 2);
-      								       $pos = array_keys($words);
-      								       $text = substr($str_bd, 0, $pos[100]) . '......';
+      								   $str_bd="内容無し";
+      								   if (mb_strlen($str_bd) > 20) {
+      								       $text = $str_bd . '......';
       								       $flag=0;
       								      }
       								   else
@@ -90,11 +88,14 @@
 
 									<div class="cl-footer clearfix">
 										@if($flag==0)
-										<h5 class="pull-left">
-											<a href="{{route('display-story',array($story->id))}}" style="text-decoration:none;color: #00ab6b;">Read more</a> 
-										</h5>
+										
+											<a href="{{route('display-story',array($story->id))}}" style="text-decoration:none;color: #DA6C8F;">Read more</a> 
+										
 										@endif
+										<br>
+										<h5 class="pull-left">
 										<input type="hidden" id="id_val" value="{{$story->id}}">
+										</h5>
 										@if(Sentry::check())
 										@if($bkmrk_flag==0)
 										<a  class="btn-bookmark" onclick="myFun({{$story->id}});" ><i id="{{$story->id}}" style="color:#808080"  class="fa fa-bookmark bkmrk{{$story->id}}"></i></a>
@@ -125,13 +126,17 @@
 								<!-- Content Item -->
 								</div>
 
+
+
+
+
 						    <div id="top" class="tab-pane fade">
 						    @if(count($top_stories)>0)
 							@foreach($top_stories as $story) 
 
 								<div class="cl-item">
 									<!-- Content Head -->
-								 <?php $html=$story->content;
+								 <?php /*$html=$story->content;
 								       $rec=Recommendation::where('story_id',$story->id)->get();
 								       $rec_count=count($rec);
 								       $comments=Comment::where('story_id',$story->id)->get();
@@ -171,9 +176,9 @@
       								   {
       								   	$text=$str_bd;
       								   	$flag=1;
-      								   }
+      								   }*/
       								   ?>
-                                    <a href="{{route('userpage',array($story->user_id))}}" style="text-decoration:none">
+                                    <!--<a href="{{route('userpage',array($story->user_id))}}" style="text-decoration:none">
 									<div class="cl-head">
 										<?php $image=($user->picture)?$user->picture:Config::get('app.default_dp');?>
 										<img src="{{asset($image)}}" alt="" />
@@ -236,7 +241,8 @@
 							<div class="cl-item">
 								<!-- Content Head -->
 							 <?php
-							 	   $story=Story::where('id',$bkmrk->story_id)->first();
+							 	   /*$story=Story::where('id',$bkmrk->story_id)->first();
+									echo $story;
 							 	   $html=$story->content;
 							       $rec=Recommendation::where('story_id',$story->id)->get();
 							       $rec_count=count($rec);
@@ -277,7 +283,7 @@
 								   {
 								   	$text=$str_bd;
 								   	$flag=1;
-								   }
+								   }*/
 								   ?>
 								<a href="{{route('userpage',array($story->user_id))}}" style="text-decoration:none">
 								<div class="cl-head">
@@ -331,7 +337,7 @@
 							</div>
 							@endforeach
 							@else
-							<div style="margin-top: 3%;"> ブックマックはありません。 </div>
+							<div style="margin-top: 3%;"> ブックマークはありません。 </div>
 							@endif
 						    </div>
 							  </div>
@@ -341,7 +347,23 @@
 						
 						<div class="col-md-5 col-pad content-right">
 							<div class="c-right">
+							<div class="cr-advertise">
+									<img src="{{asset('img/advertise.png')}}" alt="" />
+									<div class="cr-adv-content">
+										<h3>自分のThingsを書きましょう！</h3>
+										<h5>Thingsは、女性のライフを大きい小さい関係なく</h5>
+										<h5>気軽に共有して交流できるコミュニティです。</h5>
+										<h6>早速登録して、読んで書いて、自分を成長させましょう！</h6>
+										@if(!Sentry::check())
+										<a class="head-modal" data-toggle="modal" data-target="#myModal">書く</a>
+										@else
+										<a href="{{route('blog_editor')}}" >書く</a>
+										@endif
+
+									</div>
+								</div>
 								<div class="cr-top clearfix">
+								
 									<hr>
 									<h5 class="pull-left">タグ</h5>	
 								</div>
@@ -352,18 +374,7 @@
 									@endforeach
 									@endif
 								</div>	
-								<div class="cr-advertise">
-									<img src="{{asset('img/advertise.png')}}" alt="" />
-									<div class="cr-adv-content">
-										<h3>自分のThingsを書きましょう！</h3>
-										@if(!Sentry::check())
-										<a class="head-modal" data-toggle="modal" data-target="#myModal">書く</a>
-										@else
-										<a href="{{route('blog_editor')}}" >書く</a>
-										@endif
-
-									</div>
-								</div>
+								
 								
 								<div class="cr-bottom">
 									<div class="cr-top clearfix" style="padding: 0px 0px 20px;">

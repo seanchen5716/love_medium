@@ -2,7 +2,7 @@ html{
 	font-family:sans-serif;
 }
 body{
-	font-family: -apple-system,".SFNSText-Regular","Helvetica Neue","Roboto","Segoe UI",sans-serif;
+	font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Arial, Helvetica, sans-serif;
 }
 .navbar-nav.navbar-right{
 	padding: 10px 0px;
@@ -23,8 +23,8 @@ body{
 	padding: 10px 0px;
 }
 .navbar-brand img{
-	width: 60px;
-	margin: 10px 5px;
+	//width: 60px;
+	//margin: 10px 5px;
 }
 .navbar-form span{
 	border: 1px solid black;

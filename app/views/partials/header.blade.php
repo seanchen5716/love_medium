@@ -10,8 +10,9 @@
 <head >
   <meta charset="utf-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title >@yield('title')</title >
-  <meta name="description" content="A kickass tumblr clone" >
+  <title >@yield('title')　｜　女性のためのブログサービス</title >
+  <meta name="description" content="Thingsは、女性のためのブログサービス" >
+  
   <meta name="viewport" content="width=device-width, initial-scale=1" >
 
   <link rel="stylesheet" href="{{asset('assets/minified/application.min.css')}}" >

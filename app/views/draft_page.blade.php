@@ -93,7 +93,7 @@
 							<div class="col-md-2">
 							
 							</div>
-								<div class="col-md-8" style="margin-top: 5%">
+								<div class="col-md-8" style="margin-top: 5%;margin-bottom: 5%;">
 									<div class="col-md-6">
 										<div class="line-bar">
 											<h1>
@@ -109,7 +109,7 @@
 										</div>
 									</div>
 									@if(count($stories)>0)
-									@foreach($stories as $story)
+									@foreach($stories->reverse() as $story)
 									<div class="col-md-12 content_main">
 									 <?php $html=$story->content;
 									       $doc = new Htmldom($html);
@@ -120,10 +120,14 @@
 	      								   $var="タイトルなし";
 	      								   $type=$story->type;
 	      								   $last_updated=strtotime($story->updated_at);
+													 $views_ct=$story->views_count;
 	      								   if($type==2)
-	      								   $text="下書き / 最終更新時間:".date('Y/m/d H:i', $last_updated);
+	      								   //$text="下書き / 最終更新時間:".date('Y/m/d H:i', $last_updated)  . "|" .$views_ct . "|";
+													 $text="下書き / 閲覧数: ".$views_ct;
 	      								   else if($type==1)
-	      								   $text="公開中 / 最終更新時間:".date('Y/m/d H:i', $last_updated);
+	      								   //$text="公開中 / 最終更新時間:".date('Y/m/d H:i', $last_updated) . "|" .$views_ct . "|";
+													$text="公開中 / 閲覧数: ".$views_ct;
+
 	      								   ?>
 											<a href="{{route('display-story',array($story->id))}}" style="text-decoration: none; color:inherit">
 											<h3><b>{{$var}}</b></h3>
@@ -136,7 +140,7 @@
 												<i class="fa fa-angle-down"></i>
 											 </span>
 											
-											<ul class="dropdown-menu" style="margin-left:<?php echo (strlen($text)*6)?>px">
+											<ul class="dropdown-menu" style="min-width:auto !important;margin-left:<?php echo (strlen($text)*4.7)?>px">
 											  <li><a href="{{route('edit-story',array($story->id))}}">編集</a></li>
 											  <li><a href="{{route('delete',array($story->id))}}">削除</a></li>
 											</ul>

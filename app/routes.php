@@ -74,7 +74,7 @@
 
  Route::post('upload-story-image', array("as"=>'upload-story-image', "uses"=>'StoryController@uploadStoryImage'));
 
- Route::get('login', array( 'as' => 'login', "uses"=>'StoryController@home'));
+ Route::get('home', array( 'as' => 'login', "uses"=>'StoryController@home'));
 
  Route::get('search', array('as' => 'search', 'uses' => 'StoryController@search'));
 
@@ -89,7 +89,11 @@
 
   Route::get('/', function()
   {
-    return Redirect::to('login');
+    return Redirect::to('home');
+  });
+  Route::get('login', function()
+  {
+    return Redirect::to('home');
   });
 
   // Route::get('login', array( 'as' => 'login', function() {
@@ -104,7 +108,7 @@
 
   Route::post('register', array('as' => 'login', 'uses' =>  'UserController@saveUser'));
  
-  Route::post('login', array('as' => 'login', 'uses' =>  'UserController@loginUser'));
+  Route::post('home', array('as' => 'login', 'uses' =>  'UserController@loginUser'));
 
   Route::get('logout', array('as' => 'logout', 'uses' => 'UserController@logoutUser'))->before('auth');
 

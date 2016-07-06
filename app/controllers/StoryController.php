@@ -15,7 +15,7 @@
     {
       $bookmark=array();  
       $top_stories=Story::where('type',1)->orderBy('rec_count', 'DESC')->get();
-      $stories=Story::where('type',1)->orderBy('updated_at','DESC')->get();
+      $stories=Story::where('type',1)->orderBy('published_at','DESC')->get();
       $tags=Tag::paginate(15);
       if(Sentry::check())
       {
@@ -180,12 +180,17 @@
     $rec_ct=Recommendation::where('story_id',$id)->get();
     $rec_count=count($rec_ct);
     $comments=Comment::where('story_id',$id)->get();
+
+    $story->views_count+=1;
+    $story->save();
+
     return View::make("display_story")
                   ->with("story",$story)
                   ->with('flag',$flag)
                   ->with('comments',$comments)
                   ->with('rec_count',$rec_count)
-                  ->with('bkmrk_flag',$bkmrk_flag); 
+                  ->with('bkmrk_flag',$bkmrk_flag);
+                  
     }
 
     public function recommend()
@@ -257,7 +262,7 @@
     public function drafts()
     {
       $user_id=Sentry::getUser()->id;
-    	$stories=Story::where('user_id',$user_id)->get();
+    	$stories=Story::where('user_id',$user_id)->orderBy('created_at','ASC')->get();
     	return View::make("draft_page")->with('stories',$stories);
     }
 
@@ -323,8 +328,9 @@
     public function publishStory($id)
     { 
       $story=Story::find($id);
-
+      
       $story->type=1;
+      
       $story->save();
       return Redirect::route('login'); 
     }
@@ -334,8 +340,9 @@
       $id=Input::get('story_id');
       $tag=Tag::where('name',$tag_name)->first();  
       $story=Story::find($id);
+      
       if($story->content==NULL)
-      $story->content=" <h3 class='graf graf--h3 graf--first'>Title  </h3><p class='graf graf--p'>Tell your story…</span><br></p>";
+      $story->content=" <h3 class='graf graf--h3 graf--first'>タイトル  </h3><p class='graf graf--p'>内容</span><br></p>";
       if($story->user_id==0)
       $story->user_id=Sentry::getUser()->id;
       $story->type=1;
@@ -345,6 +352,10 @@
         $tag->name=$tag_name;
         $tag->save();
         $story->tag_id=$tag->id;
+      }
+      $dt = new DateTime('now');
+      if($story->published_at=='0000-00-00 00:00:00'){
+        $story->published_at=$dt->format('Y-m-d H:i:s');
       }
       $story->save();
       return Redirect::route('login');; 

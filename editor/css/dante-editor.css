@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url(http://fonts.googleapis.com/css?family=Merriweather:400,700,400italic,700italic|Open+Sans:400,300,800);
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,700,400italic,700italic|Open+Sans:400,300,800);
 @keyframes spinner {
   to {
     transform: rotate(360deg); } }
@@ -7,6 +7,12 @@
   to {
     -webkit-transform: rotate(360deg); } }
 /* line 32, /Users/michelson/Documents/rubyonrails/medium-editor/app/assets/stylesheets/dante/_utilities.scss */
+.notesSource img{
+  
+    height:100% !important;
+    width:100% !important;
+  
+}
 .spinner {
   min-width: 24px;
   min-height: 24px; }
@@ -36,7 +42,7 @@
   padding: 0;
   margin: 0;
   position: relative;
-  color: rgba(0, 0, 0, 0.8);
+  /* color: rgba(0, 0, 0, 0.8); */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -154,12 +160,13 @@
 
 /* line 35, /Users/michelson/Documents/rubyonrails/medium-editor/app/assets/stylesheets/dante/_post.scss */
 .postContent {
-  font-family: "freight-text-pro", "Merriweather", Georgia, Cambria, "Times New Roman", Times, serif;
-  letter-spacing: 0.01rem;
+  font-family: "Hiragino Mincho ProN", "ヒラギノ明朝 Pro W6", "Hiragino Mincho Pro", HGS明朝E, "ＭＳ Ｐ明朝", serif !important;
+  color:rgb(34, 34, 34) !important;
+  /* letter-spacing: 0.01rem;
   font-weight: 400;
-  font-style: normal;
-  font-size: 19px;
-  line-height: 1.69; }
+  //font-style: normal; */
+  font-size: 17.64px !important;;
+  line-height: 1.9rem !important; }
 
 /* line 47, /Users/michelson/Documents/rubyonrails/medium-editor/app/assets/stylesheets/dante/_post.scss */
 .postField, .postField:focus {
@@ -426,7 +433,7 @@
   border-radius: 5px;
   appearance: none;
   text-align: left;
-  font-family: "freight-text-pro", "Merriweather", Georgia, Cambria, "Times New Roman", Times, serif;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Arial, Helvetica, sans-serif;
   letter-spacing: 0.01rem;
   font-weight: 400;
   font-style: normal;
@@ -477,7 +484,7 @@
   cursor: pointer;
   font-size: 14px;
   text-decoration: none;
-  font-family: "jaf-bernino-sans", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Arial, Helvetica, sans-serif;
   letter-spacing: -0.02em;
   font-weight: 400;
   font-style: normal;
@@ -555,7 +562,7 @@
   opacity: 0;
   pointer-events: auto;
   padding: 15px;
-  font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Arial, Helvetica, sans-serif;
   letter-spacing: -0.02em;
   font-weight: 400;
   font-style: normal;
@@ -707,9 +714,19 @@
 .graf--p.spinner {
   position: relative; }
 
+.graf--p{
+  font-family: "Hiragino Mincho ProN", "ヒラギノ明朝 Pro W6", "Hiragino Mincho Pro", HGS明朝E, "ＭＳ Ｐ明朝", serif !important;
+  color:rgb(34, 34, 34) !important;
+  /* letter-spacing: 0.01rem;
+  font-weight: 400;
+  //font-style: normal; */
+  font-size: 17.64px !important;;
+  line-height: 1.9rem !important; 
+}
+
 /* line 31, /Users/michelson/Documents/rubyonrails/medium-editor/app/assets/stylesheets/dante/_graf.scss */
 .graf--h2 {
-  font-family: "jaf-bernino-sans", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Arial, Helvetica, sans-serif;
   font-size: 60px;
   font-style: normal;
   font-weight: 700;
@@ -722,28 +739,31 @@
 
 /* line 43, /Users/michelson/Documents/rubyonrails/medium-editor/app/assets/stylesheets/dante/_graf.scss */
 .graf--h3 {
-  font-family: "jaf-bernino-sans", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-  letter-spacing: -0.02em;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 36px;
-  margin-left: -1.8px;
-  line-height: 1.2;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Arial, Helvetica, sans-serif;
+  /* letter-spacing: -0.02em; */
+  font-weight: bold;
+  /* font-style: normal; */
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+  /* margin-left: -1.8px; */
+  line-height: 1.5em !important;
   margin-top: 40px;
   margin-bottom: 4px; }
 
 /* line 54, /Users/michelson/Documents/rubyonrails/medium-editor/app/assets/stylesheets/dante/_graf.scss */
 .graf--h4 {
-  font-family: "jaf-bernino-sans", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-  letter-spacing: -0.02em;
-  font-weight: 300;
-  font-style: normal;
-  font-size: 30px;
-  margin-left: -1.5px;
-  line-height: 1.2;
-  color: rgba(0, 0, 0, 0.44);
-  margin-top: 40px;
-  margin-bottom: 2px; }
+  font-family: "Hiragino Mincho ProN", "ヒラギノ明朝 Pro W6", "Hiragino Mincho Pro", HGS明朝E, "ＭＳ Ｐ明朝", serif !important;;
+  /*letter-spacing: -0.02em;*/
+  font-weight: bold !important;;
+  /* font-style: normal; */
+  font-size: 24.36px !important;;
+  /* margin-left: -1.5px; */
+  line-height: 1.5em !important;
+  color: rgb(0, 0, 0) !important;;
+  /*margin-top: 40px;*/
+  /* margin-bottom: 2px; */ 
+  padding-bottom:1em !important;;
+  }
 
 /* line 67, /Users/michelson/Documents/rubyonrails/medium-editor/app/assets/stylesheets/dante/_graf.scss */
 .section--first .graf--h2.graf--first,
@@ -801,7 +821,7 @@
 
 /* line 122, /Users/michelson/Documents/rubyonrails/medium-editor/app/assets/stylesheets/dante/_graf.scss */
 .graf--blockquote {
-  font-family: "freight-text-pro", "Merriweather", Georgia, Cambria, "Times New Roman", Times, serif;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Arial, Helvetica, sans-serif;
   border-left: 3px solid rgba(0, 0, 0, 0.8);
   font-style: italic;
   font-weight: 400;
@@ -823,7 +843,7 @@
   margin: 48px -160px;
   border: none;
   padding: 0;
-  font-family: "freight-text-pro", "Merriweather", Georgia, Cambria, "Times New Roman", Times, serif;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Arial, Helvetica, sans-serif;
   letter-spacing: 0.01rem;
   font-weight: 400;
   font-style: italic;
@@ -833,7 +853,7 @@
 /* line 152, /Users/michelson/Documents/rubyonrails/medium-editor/app/assets/stylesheets/dante/_graf.scss */
 .graf--pre {
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.05);
-  font-family: Menlo, Monaco, Consolas, "Courier New", "Courier", monospace;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Arial, Helvetica, sans-serif;
   font-size: 16px;
   margin-bottom: 20px;
   padding: 20px;
@@ -901,7 +921,7 @@ p[data-align="center"],
 
   /* line 225, /Users/michelson/Documents/rubyonrails/medium-editor/app/assets/stylesheets/dante/_graf.scss */
   .graf--h3 {
-    font-size: 26px;
+    font-size: 24px;
     line-height: 1.2;
     margin-top: 18px;
     margin-bottom: 4px; }
@@ -948,6 +968,8 @@ p[data-align="center"],
   margin: auto;
   max-width: 100%; }
 
+  
+
 /* line 2, /Users/michelson/Documents/rubyonrails/medium-editor/app/assets/stylesheets/dante/_caption.scss */
 .imageCaption {
   position: absolute;
@@ -956,7 +978,7 @@ p[data-align="center"],
   top: 0;
   text-align: right;
   margin-top: 0;
-  font-family: "freight-text-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Arial, Helvetica, sans-serif;
   letter-spacing: 0.01rem;
   font-weight: 400;
   font-style: italic;
@@ -1032,7 +1054,7 @@ h4 .markup--anchor {
   border-width: 1px;
   box-sizing: border-box;
   color: rgba(0, 0, 0, 0.6);
-  font-family: "jaf-bernino-sans", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 300;
@@ -1059,11 +1081,13 @@ h4 .markup--anchor {
 .mixtapeImage--empty {
   height: 0;
   width: 0; }
+  
+
 
 /* line 106, /Users/michelson/Documents/rubyonrails/medium-editor/app/assets/stylesheets/dante/_needsorder.scss */
 .graf--mixtapeEmbed {
   color: rgba(0, 0, 0, 0.6);
-  font-family: "jaf-bernino-sans", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 300;
@@ -1073,7 +1097,7 @@ h4 .markup--anchor {
 .markup--mixtapeEmbed-strong {
   color: #000;
   display: block;
-  font-family: "jaf-bernino-sans", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Arial, Helvetica, sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 300;
@@ -1107,7 +1131,7 @@ section.is-backgrounded + section > .section-divider {
 
 /* line 203, /Users/michelson/Documents/rubyonrails/medium-editor/app/assets/stylesheets/dante/_needsorder.scss */
 .defaultValue--prompt {
-  font-family: "jaf-bernino-sans", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;

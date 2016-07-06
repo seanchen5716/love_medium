@@ -1,11 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Thingsは、生きる、活かす</title>
+    <title>Things | 女性のためのブログサービス</title >
+		<meta property="fb:app_id" content="1761832180743115" />
+    <meta name="description" content="Thingsは、女性のためのブログサービス" >
+		<meta name="keywords" content="Things,シングス,恋愛,ブログ">
+		<meta name="og:title" content="Things | 女性のためのブログサービス">
+		<meta name="og:description" content="女性のためのブログサービス">
+		<meta name="og:image" content="">
+		<meta name="og:url" content="https://things.pe">
+		<meta name="og:site_name" content="Things">
+		<meta name="og:type" content="article">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@things_pe">
+		<meta name="twitter:creator" content="@things_pe">
+		<meta name="twitter:url" content="https://things.pe">
+		<meta name="twitter:title" content="Things | 女性のためのブログサービス">
+		<meta name="twitter:description" content="女性のためのブログサービス">
+		<meta name="twitter:image" content="https://things.pe/img/logo.png">
+
+		<link rel="canonical" href="https://things.pe">
+		<link rel="apple-touch-icon" href="https://things.pe/img/things_logo_01.png">
+
 
     <!-- Bootstrap -->
     <link href="{{URL::to('editor/css/normalize.css')}}" media="screen" rel="stylesheet" type="text/css">
@@ -14,6 +35,7 @@
     <script src="{{URL::to('editor/js/deps.js')}}" type="text/javascript"></script><style type="text/css"></style>
     <script src="{{URL::to('editor/js/dante-editor.js')}}" type="text/javascript"></script>
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+		<link href="{{asset('icomoon/style.css')}}" rel="stylesheet">
 	<!-- Custom CSS -->
     <!--<link href="css/animate.css" rel="stylesheet">-->
 	<!-- Custom CSS -->
@@ -69,9 +91,9 @@
 						<li class="active"><a data-toggle="tab" href="#home">　最新　<span class="sr-only">(current)</span></a></li>
 						<li><a data-toggle="tab" href="#top">　人気　</a></li>
 						@if(Sentry::check())
-						<li><a data-toggle="tab" href="#bkmrk_pg">ブックマック</a></li>
+						<li><a data-toggle="tab" href="#bkmrk_pg">ブックマーク</a></li>
 						@else
-						<li><a class="head-modal" data-toggle="modal" data-target="#myModal">ブックマック</a></li>
+						<li><a class="head-modal" data-toggle="modal" data-target="#myModal">ブックマーク</a></li>
 						@endif
 					  </ul>
 					 
@@ -111,7 +133,7 @@
 					<div class='arrow_box account' id="acc_box" style="right: -43px;width: 280px;">
 						<ul>
 							<li><a href="{{route('blog_editor')}}" style="text-decoration: none; color:inherit">新しい日記</li>
-							<li><a href="{{route('drafts')}}" style="text-decoration: none; color:inherit">編集・下書き</li>
+							<li><a href="{{route('drafts')}}" style="text-decoration: none; color:inherit">日記リスト</li>
 						</ul>
 						<hr/>
 						<ul style="font-size: 12px;">
@@ -130,7 +152,6 @@
 						<div class="first-content">
 							<div class="main-content">
 								<img src="{{asset('img/logo-black.png')}}" alt="" style="width: 100px;" />
-								<h2>Things</h2>
 								<h4>ログイン、または新しいアカウントを登録</h4>
 								<a class=" btn btn-green sign-link" style="border-radius: 50px;padding: 5px 14px;">ログイン</a>
 								<a  class="btn btn-green signup-link" style="border-radius: 50px;padding: 5px 14px;">登録</a>
@@ -151,7 +172,8 @@
 
 							<div class="signin-content signup" style="margin: 0px;">
 								<h2>Things</h2>
-								<h4>名前、メールアドレスとパスワードを入力して登録する</h4>
+								<h4 style="color:red">現在、招待制とさせていただきます。</h4>
+								<h4>招待された方のみ、下記名前、メールアドレスとパスワードを入力して登録する</h4>
 								<form method="POST" action="{{route('register')}}">
 									<div class="form-group">
 										<input name="username" type="text" class="form-control" placeholder="Username" value="{{Input::old('username')}}" required>

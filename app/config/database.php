@@ -9,12 +9,12 @@ return array(
 	|
 	| Enter your Domain name here
 	| eg) 'domain' => 'example.com'
-	| 
+	|
 	| Don't enter it as www.example.com or http://example.com
 	|
 	*/
 
-	'domain' => 'rumblr.biz',
+	'domain' => 'things.pe',
 
 	'fetch' => PDO::FETCH_CLASS,
 
@@ -24,7 +24,7 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => '127.0.0.1',
+			'host'      => 'localhost',
 			'database'  => 'lovemedium',
 			'username'  => 'root',
 			'password'  => '',

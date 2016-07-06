@@ -84,7 +84,7 @@ $posts = Post::whereIn('blog_id', $blogs )->with('regularPost', 'rebloggedPost',
 
 
       // Redirect to Login
-      return Redirect::route('login')->with('success', 'Check your mail for authentication link');
+      return Redirect::route('login')->with('success', '承認メールが送られるまでお待ちください。');
 
     }
     public function profile()
@@ -177,8 +177,12 @@ $posts = Post::whereIn('blog_id', $blogs )->with('regularPost', 'rebloggedPost',
         if($validator->fails()){
               return Redirect::route('profile')->with('error',$validator->messages());
         }
-        $pic->move(public_path('uploads/pictures'), $pic->getClientOriginalName());
-        $pic_loc='uploads/pictures/'.$pic->getClientOriginalName();
+        $pic_rename = value(function() use ($pic){
+          $filename=str_random(20) . '.' . $pic->getClientOriginalExtension();
+          return strtolower($filename);
+        });
+        $pic->move(public_path('uploads/pictures'), $pic_rename);
+        $pic_loc='uploads/pictures/'.$pic_rename;
         $user->picture=$pic_loc;
       }
       $user->bio=$bio;
